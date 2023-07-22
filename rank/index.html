@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>268排行榜</title>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<style>
+			thead {
+			}
+			tr {
+			}
+			td {
+			}
+			.user {
+			}
+			.id {
+			}
+			.score {
+			}
+		</style>
+		<script>
+			function getcolor(score){return 'red';}
+			function addrnk(user,id,score){document.getElementById('rank').innerHTML+='<tr><td style="color:'+getcolor(score)+'" class="user">'+user+'</td><td class="id">'+id+'</td><td class="score">'+score+'</score></tr>';}
+			function gentable(e){console.log(e);}
+			window.onload=function(){
+				$.ajax({
+					url: "./rank.json",
+					type: "GET",
+					dataType: "json",
+					success: function(e){gentable(e);}
+				});
+				//现在rank.json是修改过用来测试的，回头用initrank.cpp改回去 
+				//排序，按照score从大到小， 相等的按id从小到大
+				//然后依次添加到addrnk中
+				//getcolor需要改一下，如果数据中形如"a.b"，则代表紫名，标识为b
+				//否则按照score来分用户名颜色
+				//css里的那些东西要写一下样式
+				//gentable函数排序并显示排行榜，传入的是数组 
+			}
+		</script>
+	</head>
+	<body>
+		<table>
+			<thead>
+				<td>用户名</td>
+				<td>学号</td>
+				<td>咕值</td>
+			</thead>
+			<tbody id="rank"></tbody>
+		</table>
+	</body>
+</html>
