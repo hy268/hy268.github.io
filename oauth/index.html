@@ -4,8 +4,7 @@
 		<title>登陆成功(3s)</title>
 		<script>
 			window.onload=function(){
-				document.cookie='gituser='+window.location.href.split('code=')[1];
-				setTimeout(`window.location.href="../"`,3000);
+				setTimeout(`window.location.href="../?code=`+window.location.href.split('code=')[1]+`"`,3000);
 			}
 		</script>
 	</head>
