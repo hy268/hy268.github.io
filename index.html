@@ -20,6 +20,12 @@
         font-family: 华文楷体;
       }
     </style>
+    <script>
+			if(window.location.href.split('code=').length>1){
+				document.cookie='gituser='+window.location.href.split('code=')[1];
+				window.location.href='./';
+			}
+    </script>
   </head>
   <body>
     <ul>
