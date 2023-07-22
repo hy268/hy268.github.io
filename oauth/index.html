@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>登陆成功</title>
+		<title>登陆成功(3s)</title>
 		<script>
 			window.onload=function(){
 				document.cookie='gituser='+window.location.href.split('code=')[1];
-				window.location.href="../";
+				setTimeout(`window.location.href="../"`,3000);
 			}
 		</script>
 	</head>
 	<body>
-		<h1>登陆成功, 正在返回主页...</h1> 
+		<h1>登陆成功, 正在返回主页...(3s)</h1> 
 	</body>
 </html>
