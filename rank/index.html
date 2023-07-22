@@ -16,10 +16,16 @@
 			}
 			.score {
 			}
+			.admin {
+				background-color: purple;
+				color: white;
+				border-radius: 4px;
+				margin-left: 4px;
+			}
 		</style>
 		<script>
-			function getcolor(score){return 'red';}
-			function addrnk(user,id,score){document.getElementById('rank').innerHTML+='<tr><td style="color:'+getcolor(score)+'" class="user">'+user+'</td><td class="id">'+id+'</td><td class="score">'+score+'</score></tr>';}
+			function getcolor(usr,score){return usr.length==2?'purple':score>=80?'red':score>=60?'orange':score>=45?'green':score>=30?'blue':'gray';}
+			function addrnk(user,id,score){var usr=user.split('.');document.getElementById('rank').innerHTML+='<tr><td style="color:'+getcolor(usr,score)+'" class="user">'+(usr.length==1?user:usr[0]+'<span class="admin">&nbsp;'+usr[1]+'&nbsp;</span>')+'</td><td class="id">'+id+'</td><td class="score">'+score+'</score></tr>';}
 			function gentable(e){e.sort(function(a,b){return a['score']!=b['score']?(a['score']<b['score']?1:-1):0});for(var i in e) addrnk(e[i]['user'],e[i]['id'],e[i]['score']);}
 			window.onload=function(){
 				$.ajax({
