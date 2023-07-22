@@ -4,11 +4,43 @@
 		<title>268排行榜</title>
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<style>
+			table {
+				border: dashed 6px;
+				border-width: 6px;
+				border-collapse: separate;
+				width: 100%;
+			}
 			thead {
+				background-color: yellow;
+			}
+			@keyframes togray {
+				from {
+					border-color: red;
+				}
+				to {
+					border-color: gray;
+				}
+			}
+			@keyframes tored {
+				from {
+					border-color: gray;
+				}
+				to {
+					border-color: red;
+				}
 			}
 			tr {
+				height: 50px;
+				animation: togray 0.3s linear forwards;
+			}
+			tr:hover {
+				animation: tored 0.3s linear forwards;
 			}
 			td {
+				width: 30%;
+				height: 100%;
+				text-align: center;
+				font-size: 30px;
 			}
 			.user {
 			}
@@ -19,7 +51,7 @@
 			.admin {
 				background-color: purple;
 				color: white;
-				border-radius: 4px;
+				border-radius: 6px;
 				margin-left: 4px;
 			}
 		</style>
@@ -34,13 +66,8 @@
 					dataType: "json",
 					success: function(e){gentable(e);}
 				});
-				//现在rank.json是修改过用来测试的，回头用initrank.cpp改回去 
-				//排序，按照score从大到小， 相等的按id从小到大
-				//然后依次添加到addrnk中
-				//getcolor需要改一下，如果数据中形如"a.b"，则代表紫名，标识为b
-				//否则按照score来分用户名颜色
+				//现在rank.json是修改过用来测试的，回头用initrank.cpp改回去
 				//css里的那些东西要写一下样式
-				//gentable函数排序并显示排行榜，传入的是数组 
 			}
 		</script>
 	</head>
