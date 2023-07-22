@@ -20,13 +20,13 @@
 		<script>
 			function getcolor(score){return 'red';}
 			function addrnk(user,id,score){document.getElementById('rank').innerHTML+='<tr><td style="color:'+getcolor(score)+'" class="user">'+user+'</td><td class="id">'+id+'</td><td class="score">'+score+'</score></tr>';}
-			function gentable(e){console.log(e);}
+			function gentable(e){}
 			window.onload=function(){
 				$.ajax({
 					url: "./rank.json",
 					type: "GET",
 					dataType: "json",
-					success: function(e){gentable(e);}
+					success: function(e){console.log(e);gentable(e);}
 				});
 				//现在rank.json是修改过用来测试的，回头用initrank.cpp改回去 
 				//排序，按照score从大到小， 相等的按id从小到大
